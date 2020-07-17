@@ -32,9 +32,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=tdl_api
-      - POSTGRES_PASSWORD=tdl_api
-      - POSTGRES_DB=tdl_api_dev
+      - POSTGRES_USER=api_dev_user
+      - POSTGRES_PASSWORD=api_dev_pword
+      - POSTGRES_DB=api_dev_db
 
 volumes:
   postgres_data:
