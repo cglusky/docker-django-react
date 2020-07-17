@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+  api:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend/:/srv/app
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+  web:
+    build: ./frontend
+    command: npm start
+    volumes:
+      - ./frontend/:/srv/app
+      - /srv/app/node_modules
+    ports:
+      - 8001:3000
+    env_file:
+      - ./.env.dev
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - api
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=tdl_api
+      - POSTGRES_PASSWORD=tdl_api
+      - POSTGRES_DB=tdl_api_dev
+
+volumes:
+  postgres_data:

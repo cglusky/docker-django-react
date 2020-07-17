@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Django 
+db.sqlite3
+
+# Docker 
+Dockerfile
+Dockerfile.prod

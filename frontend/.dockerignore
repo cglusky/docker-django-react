@@ -1,0 +1,7 @@
+# Node and React
+node_modules
+build
+
+# Docker
+Dockerfile
+Dockerfile.prod
