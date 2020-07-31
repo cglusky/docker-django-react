@@ -39,8 +39,8 @@ RUN addgroup -S app && adduser -S app -G app
 # ENV HOME=/srv
 ENV APP_HOME=/srv/app
 RUN mkdir $APP_HOME
-RUN mkdir $APP_HOME/api_static
-RUN mkdir $APP_HOME/api_media
+RUN mkdir $APP_HOME/static
+RUN mkdir $APP_HOME/media
 WORKDIR $APP_HOME
 
 # install dependencies

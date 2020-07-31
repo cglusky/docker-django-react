@@ -7,8 +7,8 @@ services:
       dockerfile: Dockerfile.prod
     command: gunicorn api.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - static_volume:/srv/app/api_static
-      - media_volume:/srv/app/api_media
+      - static_volume:/srv/app/static
+      - media_volume:/srv/app/media
     expose:
       - 8000
     env_file:
@@ -26,8 +26,8 @@ services:
       context: .
       dockerfile: ./frontend/Dockerfile.prod
     volumes:
-      - static_volume:/srv/app/api_static
-      - media_volume:/srv/app/api_media
+      - static_volume:/srv/app/static
+      - media_volume:/srv/app/media
     ports:
       - 80:80
     depends_on:

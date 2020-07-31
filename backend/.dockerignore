@@ -7,4 +7,3 @@ db.sqlite3
 
 # Docker 
 Dockerfile
-Dockerfile.prod
