@@ -4,20 +4,17 @@ services:
   api:
     build: ./backend
     command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - ./backend/:/srv/app
     ports:
       - 8000:8000
     env_file:
       - ./.env.dev
+    volumes:
+      - ./backend/:/srv/app
     depends_on:
       - db
   web:
     build: ./frontend
     command: npm start
-    volumes:
-      - ./frontend/:/srv/app
-      - /srv/app/node_modules
     ports:
       - 8001:3000
     env_file:
@@ -25,13 +22,15 @@ services:
     tty: true
     environment:
       - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend/:/srv/app
+      - /srv/app/node_modules
     depends_on:
       - api
   db:
     image: postgres:12.0-alpine
+    env_file: ./.env.dev
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    env_file: .env.dev
-
 volumes:
   postgres_data:
