@@ -5,7 +5,7 @@ services:
     build: ./backend
     command: python manage.py runserver 0.0.0.0:8000
     ports:
-      - 8000:8000
+      - 8001:8000
     env_file:
       - ./.env.dev
     volumes:
@@ -16,7 +16,7 @@ services:
     build: ./frontend
     command: npm start
     ports:
-      - 8001:3000
+      - 3001:3000
     env_file:
       - ./.env.dev
     tty: true
@@ -29,6 +29,8 @@ services:
       - api
   db:
     image: postgres:12.0-alpine
+    ports:
+      - 5432:5432
     env_file: ./.env.dev
     volumes:
       - postgres_data:/var/lib/postgresql/data
