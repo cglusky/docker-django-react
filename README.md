@@ -2,7 +2,7 @@
 
 ## WORK IN PROGRESS
 
-A slightly opinionated local dev fullstack template for docker-compose with Django backend and React frontend; served behind NGINX. Keeping the full stack in one repo for ease of use. Composed of ideas from multiple tutorials, forum threads and official docs. Nothing original here.
+A slightly opinionated local dev full stack template using docker-compose with Django backend and React frontend; all served behind NGINX. Keeping the full stack in one repo for ease of use. Composed of ideas from multiple tutorials, forum threads and official docs. Nothing original here.
 
 ## Main Frameworks/Libraries/Packages
 
@@ -104,13 +104,13 @@ $> docker exec -it <container-name> sh
 
 | Container  | Service | Host Port | Docker Port |
 | ---------- | ------- | --------- | ----------- |
-| dev-django | djnago  | 8001      | 8000        |
+| dev-django | django  | 8001      | 8000        |
 | dev-react  | react   | 3001      | 3000        |
 | dev-db     | db      | 5432      | 5432        |
 | dev-nginx  | nginx   | 8080      | 80          |
 
 ### Why NGINX for local dev?
 
-I can barely spell CORS let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastrcture as a bonus. This is an idea I picked up from the good folks at testdriven.io and I liked it enough to make it work(I think). So...
+I can barely spell CORS, let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastrcture as a bonus. This is an idea I picked up from the good folks at testdriven.io and I liked it enough to make it work(I think). So...
 
 Please make all requests from your browser through http://localhost:8080 and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/domain/port == CORS bliss.
