@@ -21,7 +21,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     env_file:
       - ./.env.prod.db
-  web:
+  client:
     build:
       context: .
       dockerfile: ./frontend/Dockerfile.prod
