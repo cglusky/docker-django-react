@@ -34,7 +34,7 @@ Ngnix
 
 Django
 
-- One app/installed created called core
+- One app created/installed called core
 - Custom user stubbed out in the Core app. No additional fields. Just a blank class that inherets AbstractUser. core.User is assigned as AUTH_USER_MODEL
 - SimpleJWT is installed but not used.
 
@@ -56,7 +56,7 @@ $> git push -u origin master
 
 ### Edit And Rename .env-example
 
-All services expect to read env variables from .env.dev file. Please make sure you review the example and change the name to env.dev. AND that your gitignore includes env files before you commit super secret stuff to a public repo.
+All services expect to read env variables from .env.dev file. Please make sure you review the example and change the name to env.dev. AND that your gitignore handles env files before you commit super secret stuff to a public repo.
 
 ### Useful Commands
 
@@ -111,6 +111,6 @@ $> docker exec -it <container-name> sh
 
 ### Why NGINX for local dev?
 
-I can barely spell CORS, let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastrcture as a bonus. This is an idea I picked up from the good folks at testdriven.io and I liked it enough to make it work(I think). So...
+I can barely spell CORS, let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastructure as a bonus. This is an idea I picked up from the good folks at testdriven.io and I liked it enough to make it work(I think). So...
 
 Please make all requests from your browser through http://localhost:8080 and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/domain/port == CORS bliss.
