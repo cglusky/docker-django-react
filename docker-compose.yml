@@ -10,8 +10,8 @@ services:
     env_file:
       - ./.env.dev
     volumes:
-      - static_volume:/srv/app/static
-      - media_volume:/srv/app/media
+      - static:/srv/app/static
+      - media:/srv/app/media
     depends_on:
       - db
   react:
@@ -45,8 +45,8 @@ services:
       - 8080:80
     restart: always
     volumes:
-      - static_volume:/srv/app/static
-      - media_volume:/srv/app/media
+      - static:/srv/app/static
+      - media:/srv/app/media
     depends_on:
       - django
       - react
