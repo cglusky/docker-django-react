@@ -10,6 +10,7 @@ services:
     env_file:
       - ./.env.dev
     volumes:
+      - ./backend/:/srv/app
       - static:/srv/app/static
       - media:/srv/app/media
     depends_on:
