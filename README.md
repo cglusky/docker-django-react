@@ -49,7 +49,7 @@ Feel free to fork at will but it may be handier as template. The following are t
 
 $> git clone https://github.com/cglusky/docker-django-react.git <new-local-repo-dir>
 $> cd <new-local-repo-dir>
-$> git remote add origin <url-new-remote-repo-created-in-step-1>
+$> git remote set-url origin <url-new-remote-repo-created-in-step-1>
 $> git push -u origin master
 
 ```
