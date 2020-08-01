@@ -19,6 +19,7 @@ React
 
 - Create React App
 - Node dev server via Docker LTS alpine image
+- Hot reload
 
 Postgress
 
@@ -110,6 +111,6 @@ $> docker exec -it <container-name> sh
 
 ### Why NGINX for local dev?
 
-I can barely spell CORS let alone decode all of the issues trying to get cross origin requests to work. Using NGINX to proxy requests to the correct container helps make your browser happy. And it simulates real world infrastrcture as a bonus. This is an idea I picked up from the good folks at testdriven.io and I liked it enough to make it work. So...
+I can barely spell CORS let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastrcture as a bonus. This is an idea I picked up from the good folks at testdriven.io and I liked it enough to make it work(I think). So...
 
-To make this idea work you need to make all requests from your browser through http://localhost:8080 and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/host/port == CORS bliss.
+Please make all requests from your browser through http://localhost:8080 and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/domain/port == CORS bliss.
