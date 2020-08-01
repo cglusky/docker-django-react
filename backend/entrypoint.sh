@@ -11,6 +11,7 @@ then
     echo "PostgreSQL started"
 fi
 
+# Uncomment below to flush db e.g. after running tests 
 #python manage.py flush --no-input
 python manage.py migrate
 python manage.py collectstatic --noinput
