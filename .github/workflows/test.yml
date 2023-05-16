@@ -26,14 +26,18 @@ jobs:
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v3
-      - name: Change to 'frontend' directory
-        run: cd ./frontend
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+        working-directory: ./frontend
       - name: Start server
-        run: npm start
+        run: |
+          npm start
+        working-directory: ./frontend
       - name: Run Cypress test suite
-        run: npx run cypress
+        run: |
+          npx run cypress
+        working-directory: ./frontend
       #   uses: cypress-io/github-action@v4
       #   with:
       #     command: npx cypress run
