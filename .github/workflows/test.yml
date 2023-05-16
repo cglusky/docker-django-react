@@ -27,13 +27,12 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v3
       - name: Install dependencies
+# Requires lock file - npm ci doesn't generate    
         run: |
-          npm ci
+          npm install 
         working-directory: ./frontend
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
           build: npm run build
           start: npm start
-
-    
