@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v3
+      - name: Change to 'frontend' directory
+        run: cd ./frontend
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v4
         with:
