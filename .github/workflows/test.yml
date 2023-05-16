@@ -2,4 +2,7 @@ name: GitHub Actions Testing
 on: push
 jobs:
   lint:
-    eun: echo 'Githuib actions linting'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint codebase
+        run: echo 'LINTING SCRIPT'
