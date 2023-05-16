@@ -26,25 +26,11 @@ jobs:
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: |
-          npm install
-        working-directory: ./frontend
-      - name: Build app
-        run: |
-          npm run build
-        working-directory: ./frontend
-      - name: Install local server
-        run: npm install -g serve
-      - name: Serve app locally
-        run: |
-          serve -s build
-        working-directory: ./frontend
+      - name: Build stack
+        run: docker-compose build
+      - name: Run stack
+        run: docker-compose up -d
       - name: Run Cypress test suite
         run: |
           npx run cypress
         working-directory: ./frontend
-      #   uses: cypress-io/github-action@v4
-      #   with:
-      #     command: npx cypress run
-      #     browser: chrome
