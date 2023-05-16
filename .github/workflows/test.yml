@@ -23,14 +23,14 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     needs: lint
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v3
-      - name: Build stack
-        run: docker-compose build
-      - name: Run stack
-        run: docker-compose up -d
-      - name: Run Cypress test suite
-        run: |
-          npx run cypress
-        working-directory: ./frontend
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
