@@ -32,11 +32,12 @@ jobs:
         working-directory: ./frontend
       - name: Build app
         run: |
-          npm build
+          npmrun build
         working-directory: ./frontend
       - name: Serve app locally
         run: |
           serve -s build
+        working-directory: ./frontend
       - name: Run Cypress test suite
         run: |
           npx run cypress
