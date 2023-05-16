@@ -1,0 +1,5 @@
+name: GitHub Actions Testing
+on: push
+jobs:
+  lint:
+    eun: echo 'Githuib actions linting'
