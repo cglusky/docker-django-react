@@ -32,7 +32,7 @@ jobs:
         working-directory: ./frontend
       - name: Build app
         run: |
-          npmrun build
+          npm run build
         working-directory: ./frontend
       - name: Serve app locally
         run: |
