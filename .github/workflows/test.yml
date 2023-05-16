@@ -30,10 +30,13 @@ jobs:
         run: |
           npm install
         working-directory: ./frontend
-      - name: Start server
+      - name: Build app
         run: |
-          npm start
+          npm build
         working-directory: ./frontend
+      - name: Serve app locally
+        run: |
+          serve -s build
       - name: Run Cypress test suite
         run: |
           npx run cypress
