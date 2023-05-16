@@ -34,6 +34,8 @@ jobs:
         run: |
           npm run build
         working-directory: ./frontend
+      - name: Install local server
+        run: npm install -g serve
       - name: Serve app locally
         run: |
           serve -s build
