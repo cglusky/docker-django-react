@@ -28,8 +28,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Change to 'frontend' directory
         run: cd ./frontend
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v4
-        with:
-          command: npx cypress run
-          browser: chrome
+      - name: Install dependencies
+        run: npm install
+      - name: Start server
+        run: npm start
+      - name: Run Cypress test suite
+        run: npx run cypress
+      #   uses: cypress-io/github-action@v4
+      #   with:
+      #     command: npx cypress run
+      #     browser: chrome
