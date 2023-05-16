@@ -1,8 +1,22 @@
 name: GitHub Actions Testing
-on: push
+on: [push]
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - name: Lint codebase
         run: echo 'LINTING SCRIPT'
+  test:
+    runs-on: ubunbtu-latest
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v3
+      - name: Run Testing Library on frontend
+        working-directory: ./frontend
+        run: npm run test
+      - name: Run Cypress on frontend
+        working-directory: ./frontend
+        run: npx cypress run
+      
+
+    
