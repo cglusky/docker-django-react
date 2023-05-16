@@ -33,4 +33,3 @@ jobs:
         with:
           command: npx cypress run
           browser: chrome
-        working-directory: ./frontend
