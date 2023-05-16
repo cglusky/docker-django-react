@@ -7,7 +7,8 @@ jobs:
       - name: Lint codebase
         run: echo 'LINTING SCRIPT'
   test:
-    runs-on: ubunbtu-latest
+    runs-on: ubuntu-latest
+    needs: lint
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v3
