@@ -1,0 +1,11 @@
+# Use the official Cypress base image (M1 compatible)
+FROM cypress/included:10.3.0
+
+# Set the working directory
+WORKDIR /e2e
+
+# Copy the Cypress configuration file
+COPY cypress.config.js .
+
+# Copy the test specs into e2e
+COPY ./cypress/e2e/ .

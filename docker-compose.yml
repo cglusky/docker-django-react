@@ -31,6 +31,27 @@ services:
       - /srv/app/node_modules
     depends_on:
       - django
+  cypress:
+    image: cypress/included:10.3.0
+    container_name: dev-cypress
+    # restart: always
+    depends_on:
+      - react
+      - nginx
+    # environment:
+    #   - CYPRESS_baseUrl=http://nginx:8080
+    # working_dir: /e2e
+    volumes:
+      - ./frontend/cypress:/cypress
+      - ./frontend/cypress.config.js:/cypress.config.js
+  # cypress:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile.cypress
+  #   # volumes:
+  #   #   - ./frontend:/app
+  #   depends_on:
+  #     - react
   db:
     image: postgres:12.0-alpine
     container_name: dev-db
