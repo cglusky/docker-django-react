@@ -29,8 +29,13 @@ jobs:
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v3
+      - name: Build containers
+        run: docker-compose build
+      - name: Run containers
+        run: docker-compose up -d
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
           start: npm start
+          browser: chrome
