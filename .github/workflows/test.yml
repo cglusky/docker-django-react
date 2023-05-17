@@ -29,13 +29,18 @@ jobs:
       - name: Build containers
         run: |
           docker-compose build
+      - name: Run containers
+        run: |
+          docker-compose up -d
+      - name: Show directory
+        rin: pwd
       - name: Cypress run
+        working-directory: ./frontend
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
           record: false
-          start: docker-compose up -d
-          wait-on: "http://localhost:8080"
+          # wait-on: "http://localhost:8080"
       - name: Stop and remove containers
         run: |
           docker-compose down
