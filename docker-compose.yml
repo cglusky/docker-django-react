@@ -35,15 +35,6 @@ services:
       - django
     networks:
       - dev-net
-  # cypress:
-  #   image: cypress/included:10.3.0
-  #   container_name: dev-cypress
-  #   depends_on:
-  #     - react
-  #     - nginx
-  #   volumes:
-  #     - ./frontend/cypress:/cypress
-  #     - ./frontend/cypress.config.js:/cypress.config.js
   db:
     image: postgres:12.0-alpine
     container_name: dev-db
