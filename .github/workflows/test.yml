@@ -22,6 +22,8 @@ jobs:
   #       working-directory: ./frontend
   cypress:
     runs-on: ubuntu-latest
+    # Specific container to run Cypress
+    container: cypress/browsers:node16.16.0-chrome107-ff107-edge
     needs: lint
     steps:
       - name: Checkout codebase
@@ -36,19 +38,18 @@ jobs:
         run: pwd
       - name: Show files
         run: ls -la
-      - name: Cypress run
-        # uses: cypress-io/github-action@v2
-        # with:
+      - name: File Exploring
         working-directory: ./frontend
         run: |
           pwd
           ls -la
           cat package.json
-          npm i -D
-          npx cypress run
-        #  browser: chrome
-        #  record: false
-          # wait-on: "http://localhost:8080"
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          wait-on: "http://localhost:8080"
+          browser: chrome
+          working-directory: ./frontend
       - name: Stop and remove containers
         run: |
           docker-compose down
