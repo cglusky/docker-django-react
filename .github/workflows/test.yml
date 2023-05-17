@@ -37,9 +37,9 @@ jobs:
       - name: Show files
         run: ls -la
       - name: Cypress run
-        working-directory: ./frontend
         uses: cypress-io/github-action@v2
         with:
+          working-directory: ./frontend
           browser: chrome
           record: false
           # wait-on: "http://localhost:8080"
