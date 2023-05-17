@@ -37,11 +37,16 @@ jobs:
       - name: Show files
         run: ls -la
       - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ./frontend
-          browser: chrome
-          record: false
+        # uses: cypress-io/github-action@v2
+        # with:
+        working-directory: ./frontend
+        run: |
+          pwd
+          ls -la
+          cat package.json
+          npx cypress run
+        #  browser: chrome
+        #  record: false
           # wait-on: "http://localhost:8080"
       - name: Stop and remove containers
         run: |
