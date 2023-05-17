@@ -44,6 +44,7 @@ jobs:
           pwd
           ls -la
           cat package.json
+          npm i -D
           npx cypress run
         #  browser: chrome
         #  record: false
