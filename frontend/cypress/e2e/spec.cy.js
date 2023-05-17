@@ -6,7 +6,8 @@ describe('main app test suite', () => {
   });
 
   it('should render a button', () => {
-    cy.get('button').should('not.exist')
+    cy.get('button').should('exist')
+    cy.get('not-here').should('exist')
   });
 
   it('should toggle the message', () => {

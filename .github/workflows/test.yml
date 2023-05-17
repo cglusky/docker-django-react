@@ -37,7 +37,7 @@ jobs:
           docker build -f ./frontend/Dockerfile.cypress -t testapp-cypress:latest ./frontend
       - name: Connect Cypress container to existing network and run tests
         run: |
-          docker run --network=dev-net testapp-cypress
+          docker run --rm --network=dev-net testapp-cypress
       - name: Stop and remove containers
         run: |
           docker-compose down

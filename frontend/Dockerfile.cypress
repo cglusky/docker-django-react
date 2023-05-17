@@ -11,4 +11,4 @@ COPY cypress ./cypress
 CMD ["cypress", "run"]
 
 # docker build -f ./frontend/Dockerfile.cypress -t testapp-cypress:latest ./frontend
-# docker run --network=dev-net testapp-cypress
+# docker run --rm --network=dev-net testapp-cypress
