@@ -22,6 +22,7 @@ jobs:
   #       working-directory: ./frontend
   cypress:
     runs-on: ubuntu-latest
+    container: cypress/browsers:node18.12.0-chrome106-ff106
     needs: lint
     # defaults:
     #   run:
