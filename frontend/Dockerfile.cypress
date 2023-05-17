@@ -1,11 +1,18 @@
 # Use the official Cypress base image (M1 compatible)
 FROM cypress/included:10.3.0
 
-# Set the working directory
-WORKDIR /e2e
-
 # Copy the Cypress configuration file
 COPY cypress.config.js .
 
-# Copy the test specs into e2e
-COPY ./cypress/e2e/ .
+# Copy the test specs
+COPY cypress ./cypress
+
+# Run the Cypress tests
+CMD ["cypress", "run"]
+
+# docker build ./frontend/cypress -t cypress
+# docker build ./frontend -t cypress -f frontend/Dockerfile.cypress
+
+
+# docker build -f ./frontend/Dockerfile.cypress -t testapp-cypress:latest ./frontend
+# docker run --network=dev-net testapp-cypress

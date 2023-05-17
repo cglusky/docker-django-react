@@ -15,6 +15,8 @@ services:
       - media:/srv/app/media
     depends_on:
       - db
+    networks:
+      - dev-net
   react:
     build: ./frontend
     container_name: dev-react
@@ -31,27 +33,17 @@ services:
       - /srv/app/node_modules
     depends_on:
       - django
-  cypress:
-    image: cypress/included:10.3.0
-    container_name: dev-cypress
-    # restart: always
-    depends_on:
-      - react
-      - nginx
-    # environment:
-    #   - CYPRESS_baseUrl=http://nginx:8080
-    # working_dir: /e2e
-    volumes:
-      - ./frontend/cypress:/cypress
-      - ./frontend/cypress.config.js:/cypress.config.js
+    networks:
+      - dev-net
   # cypress:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile.cypress
-  #   # volumes:
-  #   #   - ./frontend:/app
+  #   image: cypress/included:10.3.0
+  #   container_name: dev-cypress
   #   depends_on:
   #     - react
+  #     - nginx
+  #   volumes:
+  #     - ./frontend/cypress:/cypress
+  #     - ./frontend/cypress.config.js:/cypress.config.js
   db:
     image: postgres:12.0-alpine
     container_name: dev-db
@@ -60,6 +52,8 @@ services:
     env_file: ./.env.dev
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dev-net
   nginx:
     build: ./nginx
     container_name: dev-nginx
@@ -73,8 +67,14 @@ services:
       - django
       - react
       - db
+    networks:
+      - dev-net
 
 volumes:
   postgres_data:
   media:
   static:
+
+networks:
+  dev-net:
+    name: dev-net
