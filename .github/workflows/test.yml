@@ -22,19 +22,20 @@ jobs:
   #       working-directory: ./frontend
   cypress:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node18.12.0-chrome106-ff106
     needs: lint
-    # defaults:
-    #   run:
-    #     working-directory: ./frontend
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v3
       - name: Build containers
-        run: docker-compose build
-      - name: Run containers
-        run: docker-compose up -d
-      - name: Cypress run
         run: |
-          cd ./frontend
-          npx cypress run
+          docker-compose build
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          record: false
+          start: docker-compose up -d
+          wait-on: "http://localhost:8080"
+      - name: Stop and remove containers
+        run: |
+          docker-compose down
