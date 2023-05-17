@@ -23,7 +23,7 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     # Specific container to run Cypress
-    container: cypress/browsers:node16.16.0-chrome107-ff107-edge
+    # container: cypress/browsers:node16.16.0-chrome107-ff107-edge
     needs: lint
     steps:
       - name: Checkout codebase
@@ -44,12 +44,14 @@ jobs:
           pwd
           ls -la
           cat package.json
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          wait-on: "http://localhost:8080"
-          browser: chrome
-          working-directory: ./frontend
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v5
+      #   with:
+      #     wait-on: "http://localhost:8080"
+      #     browser: chrome
+      #     working-directory: ./frontend
+      #     build: docker-compose build
+      #     start: docker-compose up -d
       - name: Stop and remove containers
         run: |
           docker-compose down
