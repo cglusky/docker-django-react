@@ -33,7 +33,9 @@ jobs:
         run: |
           docker-compose up -d
       - name: Show directory
-        rin: pwd
+        run: pwd
+      - name: Show files
+        run: ls -la
       - name: Cypress run
         working-directory: ./frontend
         uses: cypress-io/github-action@v2
