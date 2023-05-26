@@ -8,7 +8,8 @@ COPY cypress.config.js .
 COPY cypress ./cypress
 
 # Run the Cypress tests
-CMD ["cypress", "run"]
+CMD ["cypress", "run", "--spec", "cypress/e2e/all.cy.js"]
 
+# CLI commands to build and run
 # docker build -f ./frontend/Dockerfile.cypress -t testapp-cypress:latest ./frontend
 # docker run --rm --network=dev-net testapp-cypress

@@ -42,9 +42,24 @@ services:
       - 5432:5432
     env_file: ./.env.dev
     volumes:
+      - ./volumes/database:/docker-entrypoint-initdb.d
       - postgres_data:/var/lib/postgresql/data
     networks:
       - dev-net
+  pgadmin:
+      build: ./pgadmin
+      container_name: dev-pgadmin
+      # environment: 
+      #   - PGADMIN_DEFAULT_EMAIL=admin@email.com
+      #   - PGADMIN_DEFAULT_PASSWORD=password
+      ports: 
+        - "5050:80"
+      env_file:
+        - ./.env.dev
+      depends_on:
+        - db
+      networks:
+        - dev-net
   nginx:
     build: ./nginx
     container_name: dev-nginx
@@ -66,6 +81,7 @@ volumes:
   media:
   static:
 
+# Use a dedicated network for the Cypress test container to attach to
 networks:
   dev-net:
     name: dev-net

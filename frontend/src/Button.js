@@ -1,6 +1,6 @@
 const Button = ({children, clickHandler}) => {
 
-    return <button onClick={clickHandler}>{children}</button>
+    return <button data-cy="todo-submit-btn" onClick={clickHandler}>{children}</button>
 }
 
 export default Button
