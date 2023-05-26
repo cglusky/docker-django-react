@@ -13,3 +13,4 @@ CMD ["cypress", "run", "--spec", "cypress/e2e/all.cy.js"]
 # CLI commands to build and run
 # docker build -f ./frontend/Dockerfile.cypress -t testapp-cypress:latest ./frontend
 # docker run --rm --network=dev-net testapp-cypress
+# docker run --rm -v "$(pwd)/volumes/cypress/:/cypress/videos" --network=dev-net testapp-cypress

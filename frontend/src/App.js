@@ -10,7 +10,7 @@ function App() {
   const getTodos = async () => {
     const res = await fetch('/api/todos/').then(res => res.json()).catch(e => console.log(e))              
     setTodos(res)
-  }
+  };
 
   const addTodo = async () => {
     const options = {
@@ -39,11 +39,11 @@ function App() {
   }
 
   
-
   return (
     <div className="App">
     <input data-cy="todo-input" type="text" value={formInput} onChange={formHandler}></input>
       <Button clickHandler={buttonHandler}>Add To Do</Button>
+      <p>{origin}</p>
       {toDos?.length && toDos.length > 0 ? <ul data-cy="todo-list">{toDos.map(el => (
         <li key={el.pk} >{el.fields.todo}</li>
       ))}</ul> : null}

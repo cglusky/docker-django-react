@@ -49,9 +49,9 @@ services:
   pgadmin:
       build: ./pgadmin
       container_name: dev-pgadmin
-      # environment: 
-      #   - PGADMIN_DEFAULT_EMAIL=admin@email.com
-      #   - PGADMIN_DEFAULT_PASSWORD=password
+      environment: 
+        - PGADMIN_DEFAULT_EMAIL=admin@email.com
+        - PGADMIN_DEFAULT_PASSWORD=password
       ports: 
         - "5050:80"
       env_file:
