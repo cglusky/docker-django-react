@@ -34,7 +34,7 @@ jobs:
           aws-region: eu-west-2
       - name: Copy in database backup from S3
         run: |
-          run: aws s3 cp s3://bayford-actions-test/backup.sql ./volumnes/database
+          aws s3 cp s3://bayford-actions-test/backup.sql ./volumnes/database
       - name: Build app containers
         run: |
           docker-compose build
