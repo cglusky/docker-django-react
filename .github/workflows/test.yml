@@ -31,7 +31,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}  # AKIAVTCEIDZPS45ADYMF
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # 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
-          aws-region: EU (London) eu-west-2
+          aws-region: eu-west-2
       - name: Copy in database backup from S3
         run: |
           pwd # run: aws s3 cp s3://my-bucket/path/to/file.txt .
