@@ -118,3 +118,10 @@ Please make all requests from your browser through http://localhost:8080 and NGI
 ### Backup Database
 
 Use plain format and an `.sql` extension on the filename
+
+
+### Actions / AWS
+
+- Need to create an IAMS user with all S3 privs
+- Need to get the user id and secret key and store in Github under Settings/Secrets/Secrets and variables/Repository Secrets
+- 

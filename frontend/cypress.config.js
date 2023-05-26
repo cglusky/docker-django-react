@@ -9,5 +9,5 @@ module.exports = defineConfig({
     },
   },
   screenshotOnRunFailure: false,
-  video: true
+  video: false
 });
