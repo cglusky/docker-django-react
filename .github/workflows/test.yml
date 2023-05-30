@@ -36,7 +36,7 @@ jobs:
         run: |
           ls -la
       - name: Print env var
-        runs: |
+        run: |
           echo $DATABASE_BACKUP_FILE
           echo ${DATABASE_BACKUP_FILE}
           echo "$DATABASE_BACKUP_FILE"
