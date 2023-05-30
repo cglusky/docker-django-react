@@ -37,7 +37,7 @@ jobs:
           ls -la
       - name: Copy in database backup from S3
         run: |
-          aws s3 cp s3://bayford-actions-test/$DATABASE_BACKUP_FILE ./volumes/database/
+          aws s3 cp s3://bayford-actions-test/${DATABASE_BACKUP_FILE} ./volumes/database/
       - name: Confirm SQL file in volumes directory
         run: |
           ls -la ./volumes/database/
