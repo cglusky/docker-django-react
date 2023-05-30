@@ -28,6 +28,7 @@ function App() {
 
   useEffect(() => {
     getTodos();
+    console.log('Some random new code');
   }, [])
 
   const buttonHandler = () => {
