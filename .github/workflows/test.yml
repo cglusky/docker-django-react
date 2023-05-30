@@ -1,5 +1,14 @@
+# The name of the action
 name: GitHub Actions Testing
-on: [push]
+
+# When the action should run - i.e. only on am erge to master
+on:
+  push:
+    branches:
+      - master
+#on: [push]
+
+# The jobs to run
 jobs:
   lint:
     runs-on: ubuntu-latest
