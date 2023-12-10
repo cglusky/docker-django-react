@@ -1,6 +1,11 @@
 # docker-django-react
 
-## WORK IN PROGRESS
+## Project Status
+
+Dec 2023
+Although I do not use Django or React these days, I know someone who does.  Special thanks to @crhowell for helping me get this updated after three years of neglect.  Seems like a few people have found it useful, so we will try to give it a little more love.  Latest updates are house keeping and version bumps.
+
+## Basics
 
 A slightly opinionated local dev full stack template using docker-compose with Django backend and React frontend; all served behind NGINX. Keeping the full stack in one repo for ease of use. Composed of ideas from multiple tutorials, forum threads and official docs. Nothing original here.
 
@@ -10,7 +15,7 @@ Please see requirements.txt and package.json for full details.
 
 Django
 
-- Django v3 series
+- Django v5
 - Django Rest Framework
 - Django Rest Framework Simple JWT
 - PyTest
@@ -23,12 +28,12 @@ React
 
 Postgress
 
-- Docker v12.0 alpine image
+- Docker v16.1 alpine image
 
 Ngnix
 
 - Docker stable alpine
-- See conf for details. Serves Django's static and media files as well.
+- Serves Django's static and media files as well.  See conf for details.
 
 ## Notes
 
@@ -111,6 +116,6 @@ $> docker exec -it <container-name> sh
 
 ### Why NGINX for local dev?
 
-I can barely spell CORS, let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastructure as a bonus. This is an idea I picked up from the good folks at testdriven.io and I liked it enough to make it work(I think). So...
+I can barely spell CORS, let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastructure as a bonus. This is an idea I picked up from the good folks at testdriven.io.  So...
 
 Please make all requests from your browser through http://localhost:8080 and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/domain/port == CORS bliss.
