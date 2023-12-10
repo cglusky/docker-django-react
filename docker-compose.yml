@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
   django:
@@ -32,7 +32,7 @@ services:
     depends_on:
       - django
   db:
-    image: postgres:12.0-alpine
+    image: postgres:16.1-alpine
     container_name: dev-db
     ports:
       - 5432:5432
