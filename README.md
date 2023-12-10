@@ -3,7 +3,7 @@
 ## Project Status
 
 Dec 2023
-Although I do not use Django or React these days, I know someone who does.  Special thanks to @crhowell for helping me get this updated after three years of neglect.  Seems like a few people have found it useful, so we will try to give it a little more love.  Latest updates are house keeping and version bumps.
+Although I do not use Django or React these days, I know someone who does.  Special thanks to @crhowell for helping me get this updated after three years of neglect.  Seems like a few people have found it useful, so we will try to give it a little more love.  Latest updates are mostly lessons learned, house keeping and version bumps.
 
 ## Basics
 
@@ -116,6 +116,10 @@ $> docker exec -it <container-name> sh
 
 ### Why NGINX for local dev?
 
-I can barely spell CORS, let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastructure as a bonus. This is an idea I picked up from the good folks at testdriven.io.  So...
+Cross-Origin Resource Sharing(CORS) issues will make your browser sad when you serve your site from different ports as we do with this architecture. Using NGINX to proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastructure as a bonus. So...
 
 Please make all requests from your browser through <http://localhost:8080> and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/domain/port == CORS bliss.
+
+### Can this be used for production?
+
+This project is focused on making it easier to perform local full stack development.  However, it is possible to add new docker compose and docker files to also support production.  It's just out of scope for this project.  Please have a look in the archives folder for some old production docker files to give you an idea of what worked in the past.
