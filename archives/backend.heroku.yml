@@ -1,0 +1,14 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+build:
+  docker:
+    web: ./Dockerfile
+  config:
+    REQUIREMENTS_FILENAME: heroku.yml
+release:
+  image: web
+  command:
+    - ./release.sh
+run:
+  web: uwsgi --http 0:$PORT --wsgi-file ./config/wsgi.py --master --processes 4 --threads 2
