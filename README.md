@@ -2,7 +2,7 @@
 
 ## Project Status
 
-Dec 2023
+**Dec 2023**
 Although I do not use Django or React these days, I know someone who does.  Special thanks to @crhowell for helping me get this updated after three years of neglect.  Seems like a few people have found it useful, so we will try to give it a little more love.  Latest updates are mostly lessons learned, house keeping and version bumps.
 
 ## Basics
