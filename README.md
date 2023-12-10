@@ -118,4 +118,4 @@ $> docker exec -it <container-name> sh
 
 I can barely spell CORS, let alone decode all of the issues trying to get Cross-Origin Resource Sharing to work. Using NGINX to redirect/proxy requests/responses to/from the correct container/service/ports helps make your browser happy. And it simulates real world infrastructure as a bonus. This is an idea I picked up from the good folks at testdriven.io.  So...
 
-Please make all requests from your browser through http://localhost:8080 and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/domain/port == CORS bliss.
+Please make all requests from your browser through <http://localhost:8080> and NGINX will happily redirect the request and proxy all your services so your browser thinks it's all one and the same protocol/domain/port == CORS bliss.
