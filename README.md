@@ -69,7 +69,7 @@ Build containers. Add -up flag to bring services up after build.
 
 ```sh
 
-$> docker-compose build
+$> docker compose build
 
 ```
 
@@ -77,7 +77,7 @@ Bring containers up. Add -d flag to run output detached from current shell.
 
 ```sh
 
-$> docker-compose up
+$> docker compose up
 
 ```
 
@@ -85,7 +85,7 @@ Bring containers down. Add -v flag to also delete named volumes
 
 ```sh
 
-$> docker-compose down
+$> docker compose down
 
 ```
 
@@ -93,7 +93,7 @@ View logs by service name.
 
 ```sh
 
-$> docker-compose logs <service-name>
+$> docker compose logs <service-name>
 
 ```
 
