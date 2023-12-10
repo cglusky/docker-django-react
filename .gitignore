@@ -1,0 +1,2 @@
+# ignore .env.<ext> files like .env.dev but not .env-example
+.env.*
