@@ -17,10 +17,6 @@ RUN apt-get update && apt-get install -y \
   netcat \
   libpq-dev \
   postgresql-client \
-  gcc \
-  netcat \
-  libpq-dev \
-  postgresql-client \
   && apt-get clean
 
 # install temp dependencies for build of pyscopg2 etc
