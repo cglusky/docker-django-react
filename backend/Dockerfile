@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.8.3-alpine
+FROM python:3.11-slim-bullseye
 
 # set work directory
 WORKDIR /srv/app
@@ -11,17 +11,16 @@ ENV PYTHONUNBUFFERED 1
 # install dependencies
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
-RUN apk add --update --no-cache postgresql-client
-# install temp dependencies for build of pyscopg2 etc
-RUN apk add --update --no-cache --virtual .tmp-build-deps \
+
+RUN apt-get update && apt-get install -y \
   gcc \
-  libc-dev \
-  linux-headers \
-  postgresql-dev \
-  musl-dev \
-  zlib zlib-dev \
-  && pip install -r requirements.txt \
-  && apk del --no-cache .tmp-build-deps
+  netcat \
+  libpq-dev \
+  postgresql-client \
+  && apt-get clean
+
+# install temp dependencies for build of pyscopg2 etc
+RUN pip install -r requirements.txt
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh .

@@ -1,4 +1,4 @@
-ARG VERSION=10.15.3-alpine
+ARG VERSION=lts-slim
 
 FROM node:${VERSION} as builder
 

@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:lts-alpine
+FROM node:lts-slim
 
 # set work directory
 WORKDIR /srv/app/
@@ -11,8 +11,6 @@ ENV PATH /srv/app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
-RUN npm install react-scripts@3.4.1 -g 
 
 # add app
 COPY . ./
-

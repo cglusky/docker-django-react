@@ -1,12 +1,17 @@
 # BUILD
-FROM node:lts-alpine as build
-WORKDIR /srv/app
+FROM node:lts-slim as build
 ENV PATH /srv/app/node_modules/.bin:$PATH
+
+WORKDIR /srv/app
+
 COPY ./frontend/package.json ./
 COPY ./frontend/package-lock.json ./
+
 RUN npm ci --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm install react-scripts@5.0.1 -g --silent
+
 COPY ./frontend ./
+
 RUN npm run build
 
 # FINAL
